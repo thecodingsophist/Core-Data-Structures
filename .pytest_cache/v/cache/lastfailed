@@ -1,0 +1,4 @@
+{
+  "search_test.py::SearchTest::test_binary_search_with_items_in_list": true,
+  "search_test.py::SearchTest::test_binary_search_with_items_not_in_list": true
+}
