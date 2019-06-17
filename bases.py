@@ -142,23 +142,35 @@ def encode(number, base):
 
     # Encode number in hexadecimal (base 16)
     # IDEA: same as converting to binary, but use global dictionary to change quotient to hexadecimal
+    # A_string = ""
+    # dividend = number
+    # while dividend > 0:
+    #     # change quotient to hexadecimal
+    #     quotient = dividend//base
+    #     print("quotient=" + str(quotient))
+    #     hexidecimal = unkey[str(dividend%base)]
+    #     print("hexidecimal=" + hexidecimal)
+    #     A_string += hexidecimal
+    #     # find next dividend
+    #     dividend = dividend//base
+    #     print("dividend=" + str(dividend))
+    # print(A_string[::-1])
+    # return A_string[::-1]
+
+    # Encode number in any base (2 up to 36)
+    # IDEA: exactly same as converting to hexidecimal
     A_string = ""
     dividend = number
     while dividend > 0:
         # change quotient to hexadecimal
         quotient = dividend//base
-        print("quotient=" + str(quotient))
-        hexidecimal = unkey[str(dividend%base)]
-        print("hexidecimal=" + hexidecimal)
-        A_string += hexidecimal
+        bascimal = unkey[str(dividend%base)]
+        A_string += bascimal
         # find next dividend
         dividend = dividend//base
         print("dividend=" + str(dividend))
     print(A_string[::-1])
     return A_string[::-1]
-
-    # TODO: Encode number in any base (2 up to 36)
-    # ...
 
 
 def convert(digits, base1, base2):
@@ -170,13 +182,9 @@ def convert(digits, base1, base2):
     # Handle up to base 36 [0-9a-z]
     assert 2 <= base1 <= 36, 'base1 is out of range: {}'.format(base1)
     assert 2 <= base2 <= 36, 'base2 is out of range: {}'.format(base2)
-    # TODO: Convert digits from base 2 to base 16 (and vice versa)
-    # ...
-    # TODO: Convert digits from base 2 to base 10 (and vice versa)
-    return encode(digits, base2)
-    # TODO: Convert digits from base 10 to base 16 (and vice versa)
-    # TODO: Convert digits from any base to any base (2 up to 36)
-    # ...
+
+    base10 = decode(digits, base1)
+    return encode(base10, base2)
 
 
 def main():
