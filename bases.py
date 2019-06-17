@@ -147,8 +147,8 @@ def encode(number, base):
     while dividend > 0:
         # change quotient to hexadecimal
         quotient = dividend//base
-        # print("quotient=" + str(quotient))
-        hexidecimal = unkey[str(quotient)]
+        print("quotient=" + str(quotient))
+        hexidecimal = unkey[str(dividend%base)]
         print("hexidecimal=" + hexidecimal)
         A_string += hexidecimal
         # find next dividend
