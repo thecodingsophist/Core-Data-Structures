@@ -1,4 +1,9 @@
 {
   "search_test.py::SearchTest::test_binary_search_with_items_in_list": true,
-  "search_test.py::SearchTest::test_binary_search_with_items_not_in_list": true
+  "search_test.py::SearchTest::test_binary_search_with_items_not_in_list": true,
+  "stack_test.py::StackTest::test_init_with_list": true,
+  "stack_test.py::StackTest::test_length": true,
+  "stack_test.py::StackTest::test_peek": true,
+  "stack_test.py::StackTest::test_pop": true,
+  "stack_test.py::StackTest::test_push": true
 }

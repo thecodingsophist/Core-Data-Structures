@@ -21,27 +21,39 @@ class LinkedStack(object):
 
     def is_empty(self):
         """Return True if this stack is empty, or False otherwise."""
-        # TODO: Check if empty
+        # Check if empty
+        return self.list.is_empty()
+
 
     def length(self):
         """Return the number of items in this stack."""
-        # TODO: Count number of items
+        # Count number of items
+        return self.list.size
 
     def push(self, item):
         """Insert the given item on the top of this stack.
-        Running time: O(???) – Why? [TODO]"""
-        # TODO: Push given item
+        Running time: O(1), b/c it's always the first item"""
+        # Push given item
+        return self.list.append(item)
 
     def peek(self):
         """Return the item on the top of this stack without removing it,
         or None if this stack is empty."""
-        # TODO: Return top item, if any
+        if self.is_empty():
+            return None
+        # Return top item, if any
+        print("the top of the peeked ll is: " + str(self.list.head.data))
+        return self.list.head
 
     def pop(self):
         """Remove and return the item on the top of this stack,
         or raise ValueError if this stack is empty.
-        Running time: O(???) – Why? [TODO]"""
-        # TODO: Remove and return top item, if any
+        Running time: O(1), b/c it's always the first item"""
+        # Remove and return top item, if any
+
+        self.list.delete(self.list.length())
+        self.list.tail = self.list.find(self.list.length()-1)
+        pass
 
 
 # Implement ArrayStack below, then change the assignment at the bottom
