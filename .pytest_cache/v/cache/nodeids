@@ -1,8 +1,9 @@
 [
-  "stack_test.py::StackTest::test_init",
-  "stack_test.py::StackTest::test_init_with_list",
-  "stack_test.py::StackTest::test_length",
-  "stack_test.py::StackTest::test_peek",
-  "stack_test.py::StackTest::test_pop",
-  "stack_test.py::StackTest::test_push"
+  "palindromes_test.py::TestPalindromes::test_is_palindrome_with_mirrored_strings",
+  "palindromes_test.py::TestPalindromes::test_is_palindrome_with_mixed_casing",
+  "palindromes_test.py::TestPalindromes::test_is_palindrome_with_mixed_casing_and_punctuation",
+  "palindromes_test.py::TestPalindromes::test_is_palindrome_with_non_palindromic_strings",
+  "palindromes_test.py::TestPalindromes::test_is_palindrome_with_whitespace",
+  "palindromes_test.py::TestPalindromes::test_is_palindrome_with_whitespace_and_mixed_casing",
+  "palindromes_test.py::TestPalindromes::test_is_palindrome_with_whitespace_and_punctuation"
 ]

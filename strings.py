@@ -6,17 +6,17 @@ def contains(text, pattern):
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     # Implement contains here (iteratively and/or recursively)
     length = len(pattern)
-    print('length =', length)
+    # print('length =', length)
     if len(text) < len(pattern):
         raise ValueError('pattern is longer than the text length')
     index = 0
     while index < len(text) + 1 - length:
-        print("maybe text = " + text[index: index+(length)])
+        # print("maybe text = " + text[index: index+(length)])
         if text[index: index+(length)] == pattern:
-            print("True")
+            # print("True")
             return True
         index += 1
-    print("False")
+    # print("False")
     return False
 
     # for index in len(text)-length:
@@ -34,10 +34,10 @@ def find_index(text, pattern):
         length = len(pattern)
         index = 0
         while index < len(text) + 1 - length:
-            print("maybe text = " + text[index: index+(length)])
+            # print("maybe text = " + text[index: index+(length)])
             # CHALLENGE: consider avoiding slicing text to save time and memory
             if text[index: index+(length)] == pattern:
-                print('index =', index)
+                # print('index =', index)
                 return index
             index += 1
 
@@ -49,11 +49,10 @@ def find_all_indexes(text, pattern):
     # Implement find_all_indexes here (iteratively and/or recursively)
     starting_indices = []
     left = 0
-    while len(text) > len(pattern):
-        starting_index = find_index(text, pattern)
+    while len(text[left:]) > len(pattern):
+        starting_index = find_index(text[left:], pattern)
         starting_indices.append(left + starting_index)
-        left = starting_index + len(pattern)
-        text = text[left:]
+        left = left + starting_index + len(pattern)
     return starting_indices
 
 def test_string_algorithms(text, pattern):

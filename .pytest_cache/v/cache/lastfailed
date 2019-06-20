@@ -1,9 +1,17 @@
 {
+  "palindromes_test.py::TestPalindromes::test_is_palindrome_with_mirrored_strings": true,
+  "palindromes_test.py::TestPalindromes::test_is_palindrome_with_mixed_casing": true,
+  "palindromes_test.py::TestPalindromes::test_is_palindrome_with_mixed_casing_and_punctuation": true,
+  "palindromes_test.py::TestPalindromes::test_is_palindrome_with_non_palindromic_strings": true,
+  "palindromes_test.py::TestPalindromes::test_is_palindrome_with_whitespace": true,
+  "palindromes_test.py::TestPalindromes::test_is_palindrome_with_whitespace_and_mixed_casing": true,
+  "palindromes_test.py::TestPalindromes::test_is_palindrome_with_whitespace_and_punctuation": true,
   "search_test.py::SearchTest::test_binary_search_with_items_in_list": true,
   "search_test.py::SearchTest::test_binary_search_with_items_not_in_list": true,
   "stack_test.py::StackTest::test_init_with_list": true,
   "stack_test.py::StackTest::test_length": true,
   "stack_test.py::StackTest::test_peek": true,
   "stack_test.py::StackTest::test_pop": true,
-  "stack_test.py::StackTest::test_push": true
+  "stack_test.py::StackTest::test_push": true,
+  "strings_test.py::StringsTest::test_find_all_indexes_with_complex_patterns": true
 }

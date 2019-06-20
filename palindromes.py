@@ -1,6 +1,5 @@
 #!python
 import math
-
 import string
 # Hint: Use these string constants to ignore capitalization and/or punctuation
 # string.ascii_lowercase is 'abcdefghijklmnopqrstuvwxyz'
@@ -14,45 +13,37 @@ def is_palindrome(text):
     # implement is_palindrome_iterative and is_palindrome_recursive below, then
     # change this to call your implementation to verify it passes all tests
     assert isinstance(text, str), 'input is not a string: {}'.format(text)
-    return is_palindrome_recursive(text)
-    # return is_palindrome_recursive(text)
-
+    return is_palindrome_iterative(text)
 
 def is_palindrome_iterative(text):
-    # TODO: implement the is_palindrome function iteratively here
-    # text.ascii_lowercase()
-    # palindrome = text.reversed(text)
-    # if palindrome == text:
-    #     return True
-    # else:
-    #     return False
-
-    text.ascii_lowercase()
-    for index in math.ceil(len(text)/2)
-        if text[index] == text[-index]:
+    text.lower()
+    index = 0
+    while index < math.ceil(len(text)/2):
+        # we use -(index + 1) because index at -0 is still 0, when trying
+        # to get the end of the string, we have to use -1 to access it
+        # so if we use index = 0 to begin with, we have to subtract 1 from it
+        # hence the -(index+1) index for the last letter in the string
+        if text[index] == text[-(index+1)]:
             pass
         else:
             return False
-
+        index += 1
     return True
 
 def is_palindrome_recursive(text, left=None, right=None):
-    # TODO: implement the is_palindrome function recursively here
-    # pass
-    # once implemented, change is_palindrome to call is_palindrome_recursive
-    # to verify that your iterative implementation passes all tests
-    text.ascii_lowercase()
-    left = text[0]
-    right = text[len(text)-1]
+    text.lower()
+    left = 0
+    right = len(text)-1
     if left > right:
         return True
     else:
-        if text[left] != text[right]
+        print("text[left]", text[left])
+        print("text[right]", text[right])
+        if text[left] != text[right]:
             return False
         left += 1
         right -= 1
-        is_palindrome_recursive(text, left, right)
-
+        is_palindrome_recursive(text, left+1, right-1)
 
 def main():
     import sys
