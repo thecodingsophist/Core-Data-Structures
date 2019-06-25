@@ -26,8 +26,9 @@ class HashTable(object):
     def load_factor(self):
         """Return the load factor, the ratio of number of entries to buckets.
         Best and worst case running time: ??? under what conditions? [TODO]"""
-        # TODO: Calculate load factor
-        # return ...
+        # Calculate load factor
+        load_factor = len(self.size)/len(self.buckets)
+        return load_factor
 
     def keys(self):
         """Return a list of all keys in this hash table.
@@ -60,14 +61,14 @@ class HashTable(object):
 
     def length(self):
         """Return the number of key-value entries by traversing its buckets.
-        Best and worst case running time: ??? under what conditions? [TODO]"""
+        Best and worst case running time: O(n) for both best and worst case"""
         # Count number of key-value entries in each of the buckets
         item_count = 0
         for bucket in self.buckets:
             item_count += bucket.length()
         return item_count
         # Equivalent to this list comprehension:
-        return sum(bucket.length() for bucket in self.buckets)
+        # return sum(bucket.length() for bucket in self.buckets)
 
     def contains(self, key):
         """Return True if this hash table contains the given key, or False.
