@@ -21,15 +21,13 @@ def linear_search_iterative(array, item):
 def linear_search_recursive(array, item, index=0):
     # the time complexity for this is O(N)
     if item == array[index]:
+        print("index", index)
         return index
+    elif index == len(array) - 1:
+        return None
     else:
         index += 1
         return linear_search_recursive(array, item, index)
-    # TODO: implement linear search recursively here
-    pass
-    # once implemented, change linear_search to call linear_search_recursive
-    # to verify that your recursive implementation passes all tests
-
 
 def binary_search(array, item):
     """return the index of item in sorted array or None if item is not found"""
@@ -37,7 +35,9 @@ def binary_search(array, item):
     # change this to call your implementation to verify it passes all tests
     # binary_search(array, item)
     # return binary_search_iterative(array, item)
-    return binary_search_recursive(array, item)
+    index = binary_search_recursive(array, item)
+    print(index)
+    return index
 
 
 def binary_search_iterative(array, item):
@@ -63,24 +63,36 @@ def binary_search_iterative(array, item):
 
 def binary_search_recursive(array, item, left=None, right=None):
     # the time complexity for this is O(logN)
-    # TODO: implement binary search recursively here
-    print("")
-#    print("looking for " + str(item) + " out of " + str(array[left: right]))
-#    print("")
+    # implement binary search recursively here
+
     if left == None and right == None:
         left = 0
         right = len(array)-1
 
-    middle = math.floor((right + left)/2)
+    # where middle is the index of the middle items
+    # calculated using the right and left index at each recursive call
+    middle = (right + left)//2
 
-    if array[middle] == item:
+    if item == array[middle]:
+        print("index of item: ", middle)
         return middle
+    # if the item is not found in the list
+    elif left == middle or right == middle:
+        print("the item is not found in the list")
+        return None
     else:
-        if item < middle:
-            binary_search_recursive(array, item, left, middle)
-        else item > middle:
-            binary_search_recursive(array, item, middle, right)
+        if item < array[middle]:
+            result = binary_search_recursive(array, item, left, middle - 1)
+            return result
+        else:
+            result = binary_search_recursive(array, item, middle + 1, right)
+            return result
 
 if __name__ == '__main__':
-    linear_search([1,2,3,4,5,6,7], 5)
-    # binary_search_recursive([1,2,3,4,5], 4)
+    # linear_search([1,2,3,4,5,6,7], 5)
+    # names = ['Alex', 'Brian', 'Julia', 'Kojin', 'Nabil', 'Nick', 'Winnie']
+    # binary_search_recursive(names, 'Alex')
+
+    names = ['Alex', 'Brian', 'Julia', 'Kojin', 'Nabil', 'Nick', 'Winnie']
+    # binary search should return the index of each item in the list
+    assert binary_search(names, 'Winnie') == 6

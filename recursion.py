@@ -23,10 +23,16 @@ def factorial_iterative(n):
     return factorial
 
 def factorial_recursive(n):
+    print(f"factorial({n})...")
     if n == 0 or n == 1:
+        print("base case: factorial(1) = 1")
         return 1
     elif n > 1:
-        return n * factorial_recursive(n - 1)
+        print(f"recursive case: finding factorial({n}-1)")
+        fact_n_minus_1 = factorial_recursive(n - 1)
+        factorial = n * fact_n_minus_1
+        print(f"factorial({n}) = {n} * {fact_n_minus_1} =", factorial)
+        # return factorial
 
 
 def main():

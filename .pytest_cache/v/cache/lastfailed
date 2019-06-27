@@ -7,7 +7,6 @@
   "palindromes_test.py::TestPalindromes::test_is_palindrome_with_whitespace_and_mixed_casing": true,
   "palindromes_test.py::TestPalindromes::test_is_palindrome_with_whitespace_and_punctuation": true,
   "search_test.py::SearchTest::test_binary_search_with_items_in_list": true,
-  "search_test.py::SearchTest::test_binary_search_with_items_not_in_list": true,
   "stack_test.py::StackTest::test_init_with_list": true,
   "stack_test.py::StackTest::test_length": true,
   "stack_test.py::StackTest::test_peek": true,
