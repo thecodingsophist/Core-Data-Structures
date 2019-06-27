@@ -13,36 +13,45 @@ def is_palindrome(text):
     # implement is_palindrome_iterative and is_palindrome_recursive below, then
     # change this to call your implementation to verify it passes all tests
     assert isinstance(text, str), 'input is not a string: {}'.format(text)
-    return is_palindrome_recursive(text)
+    return is_palindrome_iterative(text)
 
 def is_palindrome_iterative(text):
-    text.lower()
-    index = 0
-    while index < math.ceil(len(text)/2):
+    text = text.lower()
+    left = 0
+    right = len(text) - 1
+    # while index < math.floor(len(text)/2):
+    while left <= right:
+        if not text[left].isalpha():
+            left += 1
+            continue
+        if not text[right].isalpha():
+            right -= 1
+            continue
         # we use -(index + 1) because index at -0 is still 0, when trying
         # to get the end of the string, we have to use -1 to access it
         # so if we use index = 0 to begin with, we have to subtract 1 from it
         # hence the -(index+1) index for the last letter in the string
-        if text[index] == text[-(index+1)]:
-            pass
+        if text[left] == text[right]:
+            left += 1
+            right -= 1
+            continue
         else:
             return False
-        index += 1
     return True
 
-def is_palindrome_recursive(text, left=None, right=None):
-    # text.lower()
-    if left == None and right == None:
-        left = 0
-        right = -1
-    if left > math.floor(len(text)/2):
-        return True
-    else:
-        if text[left] != text[right]:
-            return False
-        left += 1
-        right -= 1
-        is_palindrome_recursive(text, left+1, right-1)
+# def is_palindrome_recursive(text, left=None, right=None):
+#     # text.lower()
+#     if left == None and right == None:
+#         left = 0
+#         right = -1
+#     if left > math.floor(len(text)/2):
+#         return True
+#     else:
+#         if text[left] != text[right]:
+#             return False
+#         left += 1
+#         right -= 1
+#         is_palindrome_recursive(text, left+1, right-1)
 
 def main():
     import sys
