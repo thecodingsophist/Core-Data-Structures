@@ -35,28 +35,38 @@ def binary_search(array, item):
     # change this to call your implementation to verify it passes all tests
     # binary_search(array, item)
     # return binary_search_iterative(array, item)
-    index = binary_search_recursive(array, item)
+    index = binary_search_iterative(array, item)
     print(index)
     return index
 
 
 def binary_search_iterative(array, item):
     # the time complexity for this is O(logN)
-    # TODO: implement binary search iteratively here
 
-    first = array[0]
-    last = array[len(array)-1]
-    middle = array[int(math.ceil(len(array)/2))]
+    first = 0
+    last = len(array)-1
 
-    for n in array:
-        if middle == item:
-            return int(math.ceil(len(array)/2))
-        elif item > middle:
-            first = middle
-        elif item < middle:
-            last = middle
+    while not first > last:
+        print("went through loop")
+        middle = (last + first) // 2
+        print("middle: ", middle)
+        if array[middle] == item:
+            return middle
+        elif item > array[middle]:
+            print("item is greater than middle item")
+            first = middle + 1
+            print("first: ", first)
+            print("last: ", last)
+        elif item < array[middle]:
+            print("item is less than middle item")
+            print("middle at item less is: ", middle)
+            last = middle - 1
+            print("first: ", first)
+            print("last: ", last)
 
     return None
+
+
     # once implemented, change binary_search to call binary_search_iterative
     # to verify that your iterative implementation passes all tests
 
@@ -95,4 +105,4 @@ if __name__ == '__main__':
 
     names = ['Alex', 'Brian', 'Julia', 'Kojin', 'Nabil', 'Nick', 'Winnie']
     # binary search should return the index of each item in the list
-    assert binary_search(names, 'Winnie') == 6
+    assert binary_search(names, 'Alex') is 0

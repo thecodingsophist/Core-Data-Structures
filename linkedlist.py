@@ -121,7 +121,7 @@ class LinkedList(object):
                 node_counter.next = node
                 node.next = after_item
             self.size += 1
-        
+
 
     def append(self, item):
         """Insert the given item at the tail of this linked list.
@@ -177,16 +177,15 @@ class LinkedList(object):
         """Replace the given old_item in this linked list with given new_item
         using the same node, or raise ValueError if old_item is not found.
         Best case running time: O(1), if item is near the head
-        Worst case running time: O(n^2), if item is near the end"""
+        Worst case running time: O(n), if item is near the end"""
         # Find the node containing the given old_item and replace its
         # data with new_item, without creating a new node object
-        if self.find():
-            node = self.head
-            while node.data != old_item:
+        node = self.head
+        while node.data is not None and node.data != old_item:
                 node = node.next
-            node.data = new_item
-        else:
-            raise ValueError('Not in {} not in list'.format(old_item))
+        if node is None:
+            raise ValueError('Item {} not found in list.'.format(old_item))
+        node.data = new_item
 
     def delete(self, item):
         """Delete the given item from this linked list, or raise ValueError.
@@ -251,23 +250,25 @@ def test_linked_list():
     print('tail: {}'.format(ll.tail))
     print('size: {}'.format(ll.size))
     print('length: {}'.format(ll.length()))
+    
+    # print('Getting items by index:')
+    # for index in range(ll.size):
+    #     item = ll.get_at_index(index)
+    #     print('get_at_index({}): {!r}'.format(index, item))
 
-    print('Getting items by index:')
-    for index in range(ll.size):
-        item = ll.get_at_index(index)
-        print('get_at_index({}): {!r}'.format(index, item))
+    # print('Deleting items:')
+    # ll.delete('B')
+    # print(ll)
+    # ll.delete('C')
+    # print(ll)
+    # ll.delete('A')
+    # print(ll)
+    # print('head: {}'.format(ll.head))
+    # print('tail: {}'.format(ll.tail))
+    # print('size: {}'.format(ll.size))
+    # print('length: {}'.format(ll.length()))
 
-    print('Deleting items:')
-    ll.delete('B')
-    print(ll)
-    ll.delete('C')
-    print(ll)
-    ll.delete('A')
-    print(ll)
-    print('head: {}'.format(ll.head))
-    print('tail: {}'.format(ll.tail))
-    print('size: {}'.format(ll.size))
-    print('length: {}'.format(ll.length()))
+
 
 
 if __name__ == '__main__':

@@ -1,8 +1,9 @@
 {
+  "linkedlist_test.py::LinkedListTest::test_insert_at_index": true,
+  "linkedlist_test.py::LinkedListTest::test_replace": true,
   "stack_test.py::StackTest::test_init_with_list": true,
   "stack_test.py::StackTest::test_length": true,
   "stack_test.py::StackTest::test_peek": true,
   "stack_test.py::StackTest::test_pop": true,
-  "stack_test.py::StackTest::test_push": true,
-  "strings_test.py::StringsTest::test_find_all_indexes_with_complex_patterns": true
+  "stack_test.py::StackTest::test_push": true
 }
