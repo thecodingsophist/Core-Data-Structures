@@ -54,13 +54,16 @@ def find_all_indexes(text, pattern):
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     starting_indices = []
     left = 0
-    while len(text[left:]) >= len(pattern):
+    while len(text[left:]) > len(pattern):
+        print("THIS IS RUNNING OVER AND OVER AGAIN")
         starting_index = find_index(text[left:], pattern)
         if starting_index == None:
             break
         starting_indices.append(left + starting_index)
         if left == len(text):
             break
+        left += 1 + starting_index
+    print("starting_indices: ", starting_indices)
     return starting_indices
 
 def test_string_algorithms(text, pattern):
@@ -92,4 +95,4 @@ def main():
 
 if __name__ == '__main__':
     # find_index("bananas", "nas")
-    main()
+    # main()
