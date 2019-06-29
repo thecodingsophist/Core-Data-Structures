@@ -1,16 +1,13 @@
 #!python
 
-from linkedlist import LinkedList
+from linkedlist import LinkedList, Node
 
-
-# Implement LinkedStack below, then change the assignment at the bottom
-# to use this Stack implementation to verify it passes all tests
 class LinkedStack(object):
 
     def __init__(self, iterable=None):
         """Initialize this stack and push the given items, if any."""
-        # Initialize a new linked list to store the items
         self.list = LinkedList()
+        self.next_tail = None
         if iterable is not None:
             for item in iterable:
                 self.push(item)
@@ -21,39 +18,40 @@ class LinkedStack(object):
 
     def is_empty(self):
         """Return True if this stack is empty, or False otherwise."""
-        # Check if empty
-        return self.list.is_empty()
-
+        return self.list.size == 0
 
     def length(self):
         """Return the number of items in this stack."""
-        # Count number of items
         return self.list.size
 
     def push(self, item):
         """Insert the given item on the top of this stack.
-        Running time: O(1), b/c it's always the first item"""
-        # Push given item
-        return self.list.append(item)
+        Running time: O(1)"""
+        self.list.append(item)
+        return True
 
     def peek(self):
         """Return the item on the top of this stack without removing it,
         or None if this stack is empty."""
-        if self.is_empty():
-            return None
-        # Return top item, if any
-        print("the top of the peeked ll is: " + str(self.list.head.data))
-        return self.list.head
+        return self.list.tail.data if not self.is_empty() else None
 
     def pop(self):
         """Remove and return the item on the top of this stack,
         or raise ValueError if this stack is empty.
-        Running time: O(1), b/c it's always the first item"""
-        # Remove and return top item, if any
-
-        self.list.delete(self.list.length())
-        self.list.tail = self.list.find(self.list.length()-1)
-        pass
+        Running time: O(1), the list contains a pointer to the tail
+        and the tail contains a pointer to the second to last node."""
+        if not self.is_empty():
+            node = self.list.tail
+            if self.list.tail.last:
+                self.list.tail = self.list.tail.last
+            if self.list.tail.next:
+                self.list.tail.next = None
+            self.list.size -= 1
+            if self.is_empty():
+                self.list.head =self.list.tail = None
+            return node.data
+        else:
+            raise ValueError("Stack is empty.")
 
 
 # Implement ArrayStack below, then change the assignment at the bottom
@@ -74,30 +72,33 @@ class ArrayStack(object):
 
     def is_empty(self):
         """Return True if this stack is empty, or False otherwise."""
-        # TODO: Check if empty
+        return not self.list
 
     def length(self):
         """Return the number of items in this stack."""
-        # TODO: Count number of items
+        return len(self.list)
 
     def push(self, item):
         """Insert the given item on the top of this stack.
-        Running time: O(???) – Why? [TODO]"""
-        # TODO: Insert given item
+        Running time: O(1), you're adding to the top of the stack"""
+        self.list.append(item)
 
     def peek(self):
         """Return the item on the top of this stack without removing it,
         or None if this stack is empty."""
-        # TODO: Return top item, if any
+        return self.list[self.length()-1] if self.length() else None
 
     def pop(self):
         """Remove and return the item on the top of this stack,
         or raise ValueError if this stack is empty.
-        Running time: O(???) – Why? [TODO]"""
-        # TODO: Remove and return top item, if any
+        Running time: O(1), you're removing from the top of the stack"""
+        if self.list:
+            return self.list.pop(self.length()-1)
+        else:
+            raise ValueError('Empty list.')
 
 
-# Implement LinkedStack and ArrayStack above, then change the assignment below
-# to use each of your Stack implementations to verify they each pass all tests
-Stack = LinkedStack
-# Stack = ArrayStack
+#Implement LinkedStack and ArrayStack above, then change the assignment below
+#to use each of your Stack implementations to verify they each pass all tests
+# Stack = LinkedStack
+Stack = ArrayStack

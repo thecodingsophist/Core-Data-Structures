@@ -1,7 +1,3 @@
 {
-  "stack_test.py::StackTest::test_init_with_list": true,
-  "stack_test.py::StackTest::test_length": true,
-  "stack_test.py::StackTest::test_peek": true,
-  "stack_test.py::StackTest::test_pop": true,
-  "stack_test.py::StackTest::test_push": true
+  "stack_test.py::StackTest": true
 }
