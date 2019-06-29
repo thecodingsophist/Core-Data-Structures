@@ -1,6 +1,4 @@
 {
-  "linkedlist_test.py::LinkedListTest::test_insert_at_index": true,
-  "linkedlist_test.py::LinkedListTest::test_replace": true,
   "stack_test.py::StackTest::test_init_with_list": true,
   "stack_test.py::StackTest::test_length": true,
   "stack_test.py::StackTest::test_peek": true,
