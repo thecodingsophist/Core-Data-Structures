@@ -52,10 +52,12 @@ def find_all_indexes(text, pattern):
     """Space Complexity = O(n)"""
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
+    print("TEXT: ", text)
+    print("PATTERN: " , pattern)
     starting_indices = []
     left = 0
     while len(text[left:]) > len(pattern):
-        print("THIS IS RUNNING OVER AND OVER AGAIN")
+        # print("THIS IS RUNNING OVER AND OVER AGAIN")
         starting_index = find_index(text[left:], pattern)
         if starting_index == None:
             break
@@ -95,4 +97,5 @@ def main():
 
 if __name__ == '__main__':
     # find_index("bananas", "nas")
+    assert find_index('abc', 'abc') == 0
     # main()

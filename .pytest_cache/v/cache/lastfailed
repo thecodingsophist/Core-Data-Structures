@@ -1,3 +1,4 @@
 {
-  "stack_test.py::StackTest": true
+  "stack_test.py::StackTest": true,
+  "strings_test.py::StringsTest::test_find_all_indexes_with_matching_patterns": true
 }
