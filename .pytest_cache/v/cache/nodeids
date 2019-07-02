@@ -1,11 +1,9 @@
 [
-  "strings_test.py::StringsTest::test_contains_with_complex_patterns",
-  "strings_test.py::StringsTest::test_contains_with_matching_patterns",
-  "strings_test.py::StringsTest::test_contains_with_non_matching_patterns",
-  "strings_test.py::StringsTest::test_find_all_indexes_with_complex_patterns",
-  "strings_test.py::StringsTest::test_find_all_indexes_with_matching_patterns",
-  "strings_test.py::StringsTest::test_find_all_indexes_with_non_matching_patterns",
-  "strings_test.py::StringsTest::test_find_index_with_complex_patterns",
-  "strings_test.py::StringsTest::test_find_index_with_matching_patterns",
-  "strings_test.py::StringsTest::test_find_index_with_non_matching_patterns"
+  "hashtable_test.py::HashTableTest::test_init",
+  "hashtable_test.py::HashTableTest::test_items",
+  "hashtable_test.py::HashTableTest::test_keys",
+  "hashtable_test.py::HashTableTest::test_length",
+  "hashtable_test.py::HashTableTest::test_resize",
+  "hashtable_test.py::HashTableTest::test_size",
+  "hashtable_test.py::HashTableTest::test_values"
 ]
