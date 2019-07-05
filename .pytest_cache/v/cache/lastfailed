@@ -1,8 +1,6 @@
 {
-  "binarytree_test.py::BinarySearchTreeTest::test_search_with_3_items": true,
-  "binarytree_test.py::BinarySearchTreeTest::test_search_with_3_strings": true,
-  "binarytree_test.py::BinarySearchTreeTest::test_search_with_7_items": true,
-  "binarytree_test.py::BinarySearchTreeTest::test_search_with_7_strings": true,
+  "binarytree_test.py::BinarySearchTreeTest": true,
+  "binarytree_test.py::BinaryTreeNodeTest": true,
   "stack_test.py::StackTest": true,
   "strings_test.py::StringsTest::test_find_all_indexes_with_matching_patterns": true
 }
