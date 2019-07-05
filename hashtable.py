@@ -115,9 +115,11 @@ class HashTable(object):
             # In this case, the given key's value is being updated
             # Remove the old key-value entry from the bucket first
             bucket.delete(entry)
+            self.size -= 1
         # Insert the new key-value entry into the bucket in either case
         bucket.append((key, value))
         self.size += 1
+        print("bucket has added entry and the size of h is now: ", self.size)
         load_threshold = 0.75
         if self.load_factor() > load_threshold:
             self._resize()
@@ -131,10 +133,12 @@ class HashTable(object):
         bucket = self.buckets[index]
         # Find the entry with the given key in that bucket, if one exists
         entry = bucket.find(lambda key_value: key_value[0] == key)
+        print("entry is now: ", entry)
         if entry is not None:  # Found
             # Remove the key-value entry from the bucket
             bucket.delete(entry)
             self.size -= 1
+            print("bucket has deleted entry and the size of h is now: ", self.size)
         else:  # Not found
             raise KeyError('Key not found: {}'.format(key))
 
@@ -212,4 +216,19 @@ def test_hash_table():
 
 
 if __name__ == '__main__':
-    test_hash_table()
+    # test_hash_table()
+
+    ht = HashTable()
+    ht.set('I', 1)
+    ht.set('V', 4)
+    ht.set('X', 9)
+    assert ht.length() == 3
+    assert ht.size == 3
+    ht.set('V', 5)  # Update value
+    ht.set('X', 10)  # Update value
+    assert ht.get('I') == 1
+    assert ht.get('V') == 5
+    assert ht.get('X') == 10
+    assert ht.length() == 3
+    print(ht.buckets)# Check length is not overcounting
+    assert ht.size == 3
