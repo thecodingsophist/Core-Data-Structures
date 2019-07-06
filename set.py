@@ -32,12 +32,12 @@ class Set(object):
             raise KeyError("Element not in set.")
 
     """For space and time complexity: Let
-    n = size of set 
+    n = size of set
     m = size of other set
     l = size of new set"""
 
     def union(self, other_set):
-        """Time complexity: O(n+(m-m&n))
+        """Time complexity: O(n)
         Space complexity: O(l+m)"""
         new_set = Set()
         other_set_copy = other_set
@@ -67,7 +67,7 @@ class Set(object):
     def difference(self, other_set):
         """
         Time complexity: O(n)
-        Space complexity: O(n-n&m)"""
+        Space complexity: O(n)"""
         new_set = Set()
         for element in self.container.keys(): #O(n)
             # iterate throuh the elements in .keys()
